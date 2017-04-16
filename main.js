@@ -21,17 +21,27 @@ $(function(){
 	        },
 	        success: function (response) {
 	            console.log(response);
-				var identifier = response["tracks"]["items"][0]["id"];
-				preview_url = response["tracks"]["items"][0]["preview_url"];
-				album_art = response["tracks"]["items"][0]["album"]["images"][0]["url"];
-				console.log('art: ' + album_art);
-				$('#album_art').attr("src", album_art);
-			    $('#album_art').show();
-				console.log(identifier);
-				decider(identifier, audio);
-	        },
+
+			      if (response["tracks"]["items"].length == 0) {
+			      	result.innerHTML = "Enter a real song or artist";
+			      	$('#album_art').hide();
+			      	audio.pause();
+			      }
+
+			      else {
+							var identifier = response["tracks"]["items"][0]["id"];
+							preview_url = response["tracks"]["items"][0]["preview_url"];
+							album_art = response["tracks"]["items"][0]["album"]["images"][0]["url"];
+							console.log('art: ' + album_art);
+							$('#album_art').attr("src", album_art);
+						  $('#album_art').show();
+							console.log(identifier);
+							decider(identifier, audio);
+						}
+			      },
+				
 	        error: function(err) {
-	        	console.log("err:" + JSON.stringify(err));
+	        	result.innerHTML = "Enter a real song or artist";
 	        }
 	    });
         e.preventDefault();
@@ -42,7 +52,7 @@ $(function(){
 			url: 'https://api.spotify.com/v1/audio-features/' + id,
 			type: 'GET',
 			beforeSend: function (xhr) {
-			    xhr.setRequestHeader('Authorization', 'Bearer BQAOcLZ-uqGgSTYwbNgfQsIHUHEZohHTXkgFlf5XKgjqGIFJbGkvBvMVy-op7yENK2i7DaVj0c3hpTgR1rviLoLA4th4bVzi-JA3WVlnQBjc2dxz_HFyKRiBHvD_xWPZC8QcGZBehx6Is2eG2SVyjhNIY_QCjHsZv3lioU51Wl7h3wzfztt8rqvx1FwJ_XU');
+			    xhr.setRequestHeader('Authorization', 'Bearer BQCFTxIy-McgNII09gfT1PNb3fqR5TNo6R6U6gcyix5SaogZGuff9TMi7TUSpSBw8bQV3FHJ6VaFD8d2dYE1F1asb9uCH3PWpOergfEg5N8_c6s-nIzbF2E2TK6RCg99QMzoPRd94g');
 			},
 			success: function(data) {
 		        console.log('success');
@@ -69,7 +79,7 @@ $(function(){
 		        audio.src = preview_url;
                 audio.play();
 		    },
-		   	error: function () { console.log("error son"); },
+		   	error: function () { result.innerHTML = "Enter a real song or artist"; alert("key expired"); },
 		});
 	}
 
