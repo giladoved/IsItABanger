@@ -42,7 +42,7 @@ $(function(){
 			url: 'https://api.spotify.com/v1/audio-features/' + id,
 			type: 'GET',
 			beforeSend: function (xhr) {
-			    xhr.setRequestHeader('Authorization', 'Bearer BQBto9CGr-FsvzLTqcIx41eXH-D3cttb1_lKsclEIXm4POqhx8cSdTQQIbxkQbA3wu1eYC6TzPbvCCG18_p2iIZjRQX7VP5areAGSNdDnVc2YZrvL6d0cMl35MZUp69YAToKSy4Y8QK1HfcFariBbf3x6arOuaj0m7cY3zNnVy5v4eTrV01JC5kh-s0P1T0');
+			    xhr.setRequestHeader('Authorization', 'Bearer BQAOcLZ-uqGgSTYwbNgfQsIHUHEZohHTXkgFlf5XKgjqGIFJbGkvBvMVy-op7yENK2i7DaVj0c3hpTgR1rviLoLA4th4bVzi-JA3WVlnQBjc2dxz_HFyKRiBHvD_xWPZC8QcGZBehx6Is2eG2SVyjhNIY_QCjHsZv3lioU51Wl7h3wzfztt8rqvx1FwJ_XU');
 			},
 			success: function(data) {
 		        console.log('success');
