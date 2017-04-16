@@ -82,3 +82,7 @@ input[type="text"] {
     height: 50px;
     font-size: 30px;
 }
+#album_art {
+	width: 300px;
+	height: 300px;
+}

@@ -1,12 +1,14 @@
 var input = document.getElementById("song");
 var result = document.getElementById("result");
 var preview_url;
+var album_art;
 
 $(function(){
 	var audio = new Audio();
     audio.pause();
     audio.currentTime = 0;
     audio.src = '';
+    $('#album_art').hide();
 
     $("#form").on("submit", function(e){
         query = $("#song").val();
@@ -21,6 +23,10 @@ $(function(){
 	            console.log(response);
 				var identifier = response["tracks"]["items"][0]["id"];
 				preview_url = response["tracks"]["items"][0]["preview_url"];
+				album_art = response["tracks"]["items"][0]["album"]["images"][0]["url"];
+				console.log('art: ' + album_art);
+				$('#album_art').attr("src", album_art);
+			    $('#album_art').show();
 				console.log(identifier);
 				decider(identifier, audio);
 	        },
