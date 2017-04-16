@@ -1,8 +1,11 @@
 var input = document.getElementById("song");
 var result = document.getElementById("result");
+var audio;
+var preview_url;
 
 $(function(){
     $("#form").on("submit", function(e){
+   		audio = new Audio();
         query = $("#song").val();
 		$.ajax({
 	        url: 'https://api.spotify.com/v1/search',
@@ -14,7 +17,7 @@ $(function(){
 	        success: function (response) {
 	            console.log(response);
 				var identifier = response["tracks"]["items"][0]["id"];
-				var preview_url = response["tracks"]["items"][0]["preview_url"];
+				preview_url = response["tracks"]["items"][0]["preview_url"];
 				console.log(identifier);
 				decider(identifier);
 	        },
@@ -52,6 +55,8 @@ $(function(){
 				console.log(yes_answers[rand_yes]);
 
 		        console.log("it's hype!!!");
+		        audio.src = preview_url;
+                audio.play();
 		    },
 		   	error: function () { console.log("error son"); },
 		});
