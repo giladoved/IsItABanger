@@ -24,6 +24,8 @@ $(function(){
 				var identifier = response["tracks"]["items"][0]["id"];
 				preview_url = response["tracks"]["items"][0]["preview_url"];
 				album_art = response["tracks"]["items"][0]["album"]["images"][0]["url"];
+				//alert(album_art);
+				//document.body.style.backgroundImage= "url('http://res.cloudinary.com/thefader/image/upload/iwussu1yrp4nlpml4efa.jpg')";
 				console.log('art: ' + album_art);
 				$('#album_art').attr("src", album_art);
 			    $('#album_art').show();
