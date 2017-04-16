@@ -39,6 +39,7 @@ $(function(){
 							decider(identifier, audio);
 						}
 			      },
+				
 	        error: function(err) {
 	        	result.innerHTML = "Enter a real song or artist";
 	        }
@@ -51,7 +52,7 @@ $(function(){
 			url: 'https://api.spotify.com/v1/audio-features/' + id,
 			type: 'GET',
 			beforeSend: function (xhr) {
-			    xhr.setRequestHeader('Authorization', 'Bearer BQBto9CGr-FsvzLTqcIx41eXH-D3cttb1_lKsclEIXm4POqhx8cSdTQQIbxkQbA3wu1eYC6TzPbvCCG18_p2iIZjRQX7VP5areAGSNdDnVc2YZrvL6d0cMl35MZUp69YAToKSy4Y8QK1HfcFariBbf3x6arOuaj0m7cY3zNnVy5v4eTrV01JC5kh-s0P1T0');
+			    xhr.setRequestHeader('Authorization', 'Bearer BQCFTxIy-McgNII09gfT1PNb3fqR5TNo6R6U6gcyix5SaogZGuff9TMi7TUSpSBw8bQV3FHJ6VaFD8d2dYE1F1asb9uCH3PWpOergfEg5N8_c6s-nIzbF2E2TK6RCg99QMzoPRd94g');
 			},
 			success: function(data) {
 		        console.log('success');
@@ -78,7 +79,7 @@ $(function(){
 		        audio.src = preview_url;
                 audio.play();
 		    },
-		   	error: function () { result.innerHTML = "Enter a real song or artist"; },
+		   	error: function () { result.innerHTML = "Enter a real song or artist"; alert("key expired"); },
 		});
 	}
 
