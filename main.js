@@ -55,7 +55,7 @@ $(function(){
 		        }
 
 		        var yes_answers = ["Is the sky blue?", "Does a bear shit in the woods?", "Is the Pope catholic?", "Are the Kennedy's gun shy?", "Are there naked dicks in gay porn?", "Does OU Suck?", "Duh.", "Of course.. did you really just ask me that?", "No shit.. that's a dumbass question.", "Yes", "yes...", "Yes."];
-				var rand_yes = Math.floor((Math.random() * yes_answers.length-1));
+				var rand_yes = Math.floor((Math.random() * (yes_answers.length-1)));
 				console.log(yes_answers[rand_yes]);
 				result.innerHTML = yes_answers[rand_yes];
 
