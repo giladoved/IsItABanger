@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/giladoved/IsItABanger/issues"
   },
-  "homepage": "https://github.com/giladoved/IsItABanger#readme"
+  "homepage": "https://github.com/giladoved/IsItABanger#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
