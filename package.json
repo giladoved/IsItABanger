@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/giladoved/IsItABanger#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "request": "^2.81.0"
   }
 }
