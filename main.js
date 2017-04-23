@@ -2,8 +2,13 @@ var input = document.getElementById("song");
 var result = document.getElementById("result");
 var preview_url;
 var album_art;
+var token;
 
 $(function(){
+	$.get('/auth', function (data) {
+    	token = data;
+  	});
+
 	var audio = new Audio();
     audio.pause();
     audio.currentTime = 0;
@@ -52,7 +57,7 @@ $(function(){
 			url: 'https://api.spotify.com/v1/audio-features/' + id,
 			type: 'GET',
 			beforeSend: function (xhr) {
-			    xhr.setRequestHeader('Authorization', 'Bearer BQCIwEjV2w2Mq3G3VYfcIpN0LFNCSnuvJ-mKHwickMQlsDEjG_C3lV_wMFOixtONB3WJnhhwxitGnNa9zVUS_NurOJFF7W-Sljg3Ol_z3K7kogH69R8tlcXqXkp0nEuHpY67jvCkmv8sRGsDZIXjzlroqwBTMApWxb0ZueKkFpgfbH3PTk6fnw8f5n73dDc');
+			    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 			},
 			success: function(data) {
 		        console.log('success');
